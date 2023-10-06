@@ -11,15 +11,18 @@ func UpdateWeather(weather *models.Weather) error {
 	return db.Model(&weather).Where("id = ?", 1).Updates(&weather).Error
 }
 
-func GetWeather() (*models.Weather, error) {
+func CreateWeather(weather *models.Weather) error {
 	db := database.GetDB()
 	
-	weather := models.Weather{}
-	err := db.First(&weather).Error
+	return db.Create(&weather).Error
+}
 
-	if err != nil {
-		return nil, err
-	}
+func GetTotalWeatherData() int64 {
+	db := database.GetDB()
+	
+	var total int64
+	
+	db.Model(&models.Weather{}).Count(&total)
 
-	return &weather, nil
+	return total
 }

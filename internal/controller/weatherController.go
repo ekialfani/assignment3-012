@@ -3,6 +3,7 @@ package controller
 import (
 	"assignment3-012/internal/models"
 	"assignment3-012/internal/service"
+	"encoding/json"
 	"fmt"
 	"net/http"
 
@@ -32,10 +33,17 @@ func UpdateWeather(context *gin.Context) {
 		return
 	}
 
+	jsonWeather, err := json.Marshal(weather)
+
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
 	waterStatus := service.GetWaterStatus(weather.Water)
 	windStatus := service.GetWindStatus(weather.Wind)
 
-	fmt.Println(weather)
+	fmt.Println(string(jsonWeather))
 	fmt.Println("status water:", waterStatus)
 	fmt.Println("status wind:", windStatus)
 }

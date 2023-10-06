@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"assignment3-012/internal/router"
+)
 
 func main() {
-	fmt.Println("initialize project")
+	server := router.StartApp()
+	server.Run(":8080")
 }
