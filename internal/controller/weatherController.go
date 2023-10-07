@@ -3,8 +3,6 @@ package controller
 import (
 	"assignment3-012/internal/models"
 	"assignment3-012/internal/service"
-	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -33,17 +31,12 @@ func UpdateWeather(context *gin.Context) {
 		return
 	}
 
-	jsonWeather, err := json.Marshal(weather)
-
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
-
 	waterStatus := service.GetWaterStatus(weather.Water)
 	windStatus := service.GetWindStatus(weather.Wind)
 
-	fmt.Println(string(jsonWeather))
-	fmt.Println("status water:", waterStatus)
-	fmt.Println("status wind:", windStatus)
+	context.JSON(http.StatusOK, gin.H{
+		"weather": weather,
+		"water_status": waterStatus,
+		"wind_status": windStatus,
+	})
 }
