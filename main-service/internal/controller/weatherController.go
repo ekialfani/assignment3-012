@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"assignment3-012/internal/models"
-	"assignment3-012/internal/service"
+	"assignment3-012/main-service/internal/models"
+	"assignment3-012/main-service/internal/service"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

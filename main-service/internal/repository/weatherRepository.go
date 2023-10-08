@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"assignment3-012/internal/database"
-	"assignment3-012/internal/models"
+	"assignment3-012/main-service/internal/database"
+	"assignment3-012/main-service/internal/models"
 )
 
 func UpdateWeather(weather *models.Weather) error {

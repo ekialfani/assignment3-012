@@ -1,8 +1,8 @@
 package router
 
 import (
-	"assignment3-012/internal/controller"
-	"assignment3-012/internal/database"
+	"assignment3-012/main-service/internal/controller"
+	"assignment3-012/main-service/internal/database"
 
 	"github.com/gin-gonic/gin"
 )

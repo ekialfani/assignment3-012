@@ -1,8 +1,8 @@
 package database
 
 import (
-	"assignment3-012/internal/config"
-	"assignment3-012/internal/models"
+	"assignment3-012/main-service/internal/config"
+	"assignment3-012/main-service/internal/models"
 	"log"
 
 	"gorm.io/driver/postgres"
