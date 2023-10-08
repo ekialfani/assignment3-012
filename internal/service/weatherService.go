@@ -6,13 +6,13 @@ import (
 )
 
 func UpdateWeather(weather *models.Weather) error {
-	totalWeatherData := repository.GetTotalWeatherData()
+	IsWeatherDataExist := repository.IsWeatherDataExist()
 
-	if totalWeatherData == 0 {
-		return repository.CreateWeather(weather)
+	if IsWeatherDataExist {
+		return repository.UpdateWeather(weather)
 	}
 
-	return repository.UpdateWeather(weather)
+	return repository.CreateWeather(weather)
 }
 
 func GetWaterStatus(water int) string {

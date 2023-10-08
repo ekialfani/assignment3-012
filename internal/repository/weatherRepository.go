@@ -17,12 +17,12 @@ func CreateWeather(weather *models.Weather) error {
 	return db.Create(&weather).Error
 }
 
-func GetTotalWeatherData() int64 {
+func IsWeatherDataExist() bool {
 	db := database.GetDB()
 	
 	var total int64
 	
 	db.Model(&models.Weather{}).Count(&total)
 
-	return total
+	return total != 0
 }
