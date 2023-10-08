@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"assignment3-012/internal/router"
+	"log"
+
+	"github.com/joho/godotenv"
+)
 
 func main() {
-	fmt.Println("initialize project")
+	err := godotenv.Load()
+
+	if err != nil {
+		log.Fatal("error loading .env file")
+	}
+	
+	server := router.StartApp()
+	server.Run(":8080")
 }
