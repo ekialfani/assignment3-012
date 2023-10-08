@@ -1,7 +1,7 @@
 package main
 
 import (
-	"assignment3-012/internal/router"
+	"assignment3-012/main-service/internal/router"
 	"log"
 
 	"github.com/joho/godotenv"
